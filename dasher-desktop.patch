@@ -1,0 +1,18 @@
+diff -urN dasher-3.2.11.oryg/Data/dasher.desktop dasher-3.2.11/Data/dasher.desktop
+--- dasher-3.2.11.oryg/Data/dasher.desktop	2004-09-21 00:52:43.966283992 +0200
++++ dasher-3.2.11/Data/dasher.desktop	2004-09-21 00:56:30.415858424 +0200
+@@ -1,10 +1,13 @@
+ [Desktop Entry]
+ Name=Dasher
+ GenericName=Dasher Text Entry
++GenericName[pl]=Dasher - wprowadzanie tekstu
++Comment=Predictive Text Entry
++Comment[pl]=Wprowadzanie tekstu z przewidywaniem
+ Exec=dasher
+ Icon=dasher.png
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=Application;Accessibility
++Categories=GTK;GNOME;Utility;Accessibility;
+ Encoding=UTF-8
