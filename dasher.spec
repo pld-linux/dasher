@@ -15,6 +15,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-speech-devel
 BuildRequires:	gnome-vfs2-devel
+BuildRequires:	intltool >= 0.18
 BuildRequires:	libbonobo-devel
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel
