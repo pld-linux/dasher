@@ -2,10 +2,10 @@ Summary:	Predictive text entry application
 Summary(pl):	Przewiduj±ca aplikacja do wprowadzania tekstu
 Name:		dasher
 Version:	3.2.15
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/dasher/3.2/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/gnome/sources/dasher/3.2/%{name}-%{version}.tar.bz2
 # Source0-md5:	a3fa85e32c94c69476e12ecba7d257e7
 Patch0:		%{name}-locale-names.patch
 Patch1:		%{name}-desktop.patch
@@ -24,6 +24,7 @@ BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel
 BuildRequires:	libtool
 BuildRequires:	libwnck-devel
+Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -67,7 +68,6 @@ rm -f po/no.po
 	--with-gnome \
 	--with-speech \
 	--with-a11y
-
 %{__make}
 
 %install
@@ -81,8 +81,13 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p /usr/bin/scrollkeeper-update
-%postun	-p /usr/bin/scrollkeeper-update
+%post
+/usr/bin/scrollkeeper-update -q
+
+%postun
+if [ $1 = 0 ]; then
+	/usr/bin/scrollkeeper-update -q
+fi
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
