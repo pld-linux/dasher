@@ -1,24 +1,24 @@
 Name:		dasher
 Summary:	Predictive text entry application
-Version:	3.2.3
-Release:	0.9
+Version:	3.2.4
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/3.2/%{name}-%{version}.tar.bz2
-# Source0-md5:	6f846c5ee98d006c2545367f7ee96bd9
+# Source0-md5:	aa851fab82fd79456fa019212a496c57
+Patch0:		%{name}-locale-names.patch
 URL:		http://www.inference.phy.cam.ac.uk/dasher/
 BuildRequires:	GConf2-devel
 BuildRequires:	ORBit2-devel
 BuildRequires:	at-spi-devel
-BuildRequires:	bonobo-activation-devel
-BuildRequires:	glib2-devel >= 2.0.0
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gnome-speech-devel
 BuildRequires:	gnome-vfs2-devel
-BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libbonobo-devel
 BuildRequires:	libglade2-devel
-BuildRequires:	libgnome-devel
 BuildRequires:	libgnomeui-devel
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -35,12 +35,20 @@ minute.
 
 %prep
 %setup -q
+%patch0 -p1
+
+mv po/{no,nb}.po
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 %configure \
 	--with-gnome \
 	--with-speech \
 	--with-a11y
+
 %{__make}
 
 %install
@@ -54,6 +62,9 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post -p /usr/bin/scrollkeeper-update
+%postun -p /usr/bin/scrollkeeper-update
+
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog MAINTAINERS README Doc/Colourschemes
@@ -62,3 +73,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/%{name}.desktop
 %{_iconsdir}/%{name}.png
 %{_mandir}/man1/%{name}*
+%{_omf_dest_dir}/%{name}
