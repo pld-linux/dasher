@@ -1,12 +1,12 @@
 Summary:	Predictive text entry application
 Summary(pl):	Przewiduj±ca aplikacja do wprowadzania tekstu
 Name:		dasher
-Version:	3.2.13
+Version:	3.2.15
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/3.2/%{name}-%{version}.tar.bz2
-# Source0-md5:	f54f47072dc3e8561442b334b56574cb
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/dasher/3.2/%{name}-%{version}.tar.bz2
+# Source0-md5:	a3fa85e32c94c69476e12ecba7d257e7
 Patch0:		%{name}-locale-names.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://www.inference.phy.cam.ac.uk/dasher/
@@ -18,7 +18,7 @@ BuildRequires:	automake
 BuildRequires:	expat-devel
 BuildRequires:	gnome-speech-devel
 BuildRequires:	gnome-vfs2-devel
-BuildRequires:	intltool >= 0.18
+BuildRequires:	intltool >= 0.33
 BuildRequires:	libbonobo-devel
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel
