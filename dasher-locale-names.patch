@@ -1,12 +1,12 @@
-diff -urN aa/dasher-3.2.4/configure.in dasher-3.2.4/configure.in
---- aa/dasher-3.2.4/configure.in	2004-02-25 20:38:06.000000000 +0100
-+++ dasher-3.2.4/configure.in	2004-02-25 23:31:06.379748232 +0100
-@@ -12,7 +12,7 @@
+diff -urN dasher-3.2.12.orig/configure.in dasher-3.2.12/configure.in
+--- dasher-3.2.12.orig/configure.in	2005-01-12 10:35:16.490991368 +0100
++++ dasher-3.2.12/configure.in	2005-01-12 10:36:16.796823488 +0100
+@@ -14,7 +14,7 @@
  GETTEXT_PACKAGE=dasher
  AC_SUBST(GETTEXT_PACKAGE)
  AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package])
--ALL_LINGUAS="ar az be bg bn ca cs cy da de el en_CA en_GB es et fi fr ga he hr hu id it ja ko lt mn ms ne nl no pa pl pt pt_BR ro ru sk sq sr sr@Latn sv tr uk zh_CN zh_TW"
-+ALL_LINGUAS="ar az be bg bn ca cs cy da de el en_CA en_GB es et fi fr ga he hr hu id it ja ko lt mn ms nb ne nl pa pl pt pt_BR ro ru sk sq sr sr@Latn sv tr uk zh_CN zh_TW"
+-ALL_LINGUAS="ar az be bg bn bs ca cs cy da de el en_CA en_GB es et fi fr ga gu he hi hr hu id it ja ko lt mk mn ms nb ne nl no pa pl pt pt_BR ro ru sk sq sr sr@Latn sv ta tk tr uk zh_CN zh_TW"
++ALL_LINGUAS="ar az be bg bn bs ca cs cy da de el en_CA en_GB es et fi fr ga gu he hi hr hu id it ja ko lt mk mn ms nb ne nl pa pl pt pt_BR ro ru sk sq sr sr@Latn sv ta tk tr uk zh_CN zh_TW"
  AM_GLIB_GNU_GETTEXT
  
  AC_PROG_CXX
