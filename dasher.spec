@@ -1,11 +1,11 @@
 Name:		dasher
 Summary:	Predictive text entry application
-Version:	3.2.4
+Version:	3.2.5
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/3.2/%{name}-%{version}.tar.bz2
-# Source0-md5:	aa851fab82fd79456fa019212a496c57
+# Source0-md5:	ecbfeb1198ec8d7c678c6c9d487885ab
 Patch0:		%{name}-locale-names.patch
 URL:		http://www.inference.phy.cam.ac.uk/dasher/
 BuildRequires:	GConf2-devel
