@@ -7,17 +7,18 @@ Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/3.2/%{name}-%{version}.tar.bz2
 # Source0-md5:	6f846c5ee98d006c2545367f7ee96bd9
 URL:		http://www.inference.phy.cam.ac.uk/dasher/
-BuildRequires:	glib2-devel >= 2.0.0
-BuildRequires:	gtk+2-devel >= 2.0.0
-BuildRequires:	at-spi-devel
 BuildRequires:	GConf2-devel
-BuildRequires:	libgnome-devel
-BuildRequires:	gnome-vfs2-devel
-BuildRequires:	libgnomeui-devel
-BuildRequires:	gnome-speech-devel
-BuildRequires:	bonobo-activation-devel
-BuildRequires:	libbonobo-devel
 BuildRequires:	ORBit2-devel
+BuildRequires:	at-spi-devel
+BuildRequires:	bonobo-activation-devel
+BuildRequires:	glib2-devel >= 2.0.0
+BuildRequires:	gnome-speech-devel
+BuildRequires:	gnome-vfs2-devel
+BuildRequires:	gtk+2-devel >= 2.0.0
+BuildRequires:	libbonobo-devel
+BuildRequires:	libglade2-devel
+BuildRequires:	libgnome-devel
+BuildRequires:	libgnomeui-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -55,6 +56,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
+%doc AUTHORS ChangeLog MAINTAINERS README Doc/Colourschemes
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
 %{_desktopdir}/%{name}.desktop
