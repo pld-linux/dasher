@@ -1,0 +1,12 @@
+diff -urN aa/dasher-3.2.4/configure.in dasher-3.2.4/configure.in
+--- aa/dasher-3.2.4/configure.in	2004-02-25 20:38:06.000000000 +0100
++++ dasher-3.2.4/configure.in	2004-02-25 23:31:06.379748232 +0100
+@@ -12,7 +12,7 @@
+ GETTEXT_PACKAGE=dasher
+ AC_SUBST(GETTEXT_PACKAGE)
+ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package])
+-ALL_LINGUAS="ar az be ca cs da de el en_CA en_GB es et fi fr ga hr hu it ja ko lt mn ms nl no pl pt sk sq sr sr@Latn sv"
++ALL_LINGUAS="ar az be ca cs da de el en_CA en_GB es et fi fr ga hr hu it ja ko lt mn ms nb nl pl pt sk sq sr sr@Latn sv"
+ AM_GNU_GETTEXT
+ 
+ AC_PROG_CXX
