@@ -1,5 +1,6 @@
-Name:		dasher
 Summary:	Predictive text entry application
+Summary(pl):	Przewiduj±ca aplikacja do wprowadzania tekstu
+Name:		dasher
 Version:	3.2.5
 Release:	1
 License:	GPL
@@ -34,6 +35,19 @@ user to write text as fast as normal handwriting - 25 words per
 minute; using a mouse, experienced users can write at 39 words per
 minute.
 
+%description -l pl
+Dasher to wydajny interfejs do wprowadzania tekstu sterowany przez
+naturalne ci±g³e gesty urz±dzenia wskazuj±cego. Dasher jest
+konkurencyjnym systemem wprowadzania tekstu wszêdzie tam, gdzie nie
+mo¿na u¿yæ pe³nowymiarowej klawiatury - na przyk³ad w palmtopach czy
+komputerach przeno¶nych, komputerach sterowanych przez jednorêkich,
+za pomoc± joysticka, ekranu dotykowego, trackballa lub myszy albo bez
+u¿ycia r±k (poprzez ¶ledzenie ruchów g³owy albo oczu). Wersja Dashera
+¶ledz±ca ruchy oczu pozwala do¶wiadczonemu u¿ytkownikowi pisaæ tekst
+z podobn± szybko¶ci± do normalnego pisma - 25 s³ów na minutê; przy
+u¿yciu myszy do¶wiadczeni u¿ytkownicy mog± pisaæ nawet 39 s³ów na
+minutê.
+
 %prep
 %setup -q
 %patch0 -p1
@@ -63,8 +77,8 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /usr/bin/scrollkeeper-update
-%postun -p /usr/bin/scrollkeeper-update
+%post	-p /usr/bin/scrollkeeper-update
+%postun	-p /usr/bin/scrollkeeper-update
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
