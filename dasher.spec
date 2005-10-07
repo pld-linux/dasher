@@ -14,6 +14,7 @@ BuildRequires:	ORBit2-devel
 BuildRequires:	at-spi-devel
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
+BuildRequires:	bonobo-devel
 BuildRequires:	expat-devel
 BuildRequires:	gail-devel
 BuildRequires:	gnome-speech-devel
