@@ -59,10 +59,6 @@ minutê.
 %patch0 -p1
 
 %build
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__automake}
 %configure \
 	--with-gnome \
 	--with-speech \
