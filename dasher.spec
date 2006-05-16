@@ -8,6 +8,7 @@ Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/dasher/4.0/%{name}-%{version}.tar.bz2
 # Source0-md5:	47cf27594abb51ea97f3a8fdb276736d
 Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-ac.patch
 URL:		http://www.inference.phy.cam.ac.uk/dasher/
 BuildRequires:	GConf2-devel
 BuildRequires:	ORBit2-devel
@@ -59,6 +60,10 @@ minutê.
 %patch0 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 %configure \
 	--with-gnome \
 	--with-speech \
