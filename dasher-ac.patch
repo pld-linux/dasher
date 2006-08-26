@@ -1,11 +1,12 @@
---- dasher-4.0.2/configure.in~	2006-04-01 22:33:33.000000000 +0200
-+++ dasher-4.0.2/configure.in	2006-05-16 19:32:10.000000000 +0200
-@@ -274,7 +274,7 @@
- AC_SUBST(SETTINGS_LIBS)
- 
- GTK2BUILD_CFLAGS="$GTK2_CFLAGS $SETTINGS_CFLAGS $gthread_CFLAGS $gnome_speech_CFLAGS $gnome_a11y_CFLAGS $glade_CFLAGS $gnome_CFLAGS $wnck_CFLAGS $hildon_CFLAGS"
--GTK2BUILD_LIBS="$X_LIBS $GTK2_LIBS $SETTINGS_LIBS $gthread_LIBS $gnome_speech_LIBS $gnome_a11y_LIBS $glade_LIBS $gnome_LIBS $wnck_LIBS $hildon_LIBS  -Wl,--export-dynamic,"
-+GTK2BUILD_LIBS="$X_LIBS $GTK2_LIBS $SETTINGS_LIBS $gthread_LIBS $gnome_speech_LIBS $gnome_a11y_LIBS $glade_LIBS $gnome_LIBS $wnck_LIBS $hildon_LIBS  -Wl,--export-dynamic"
- 
+diff -urN aaa/dasher-4.1.10/configure.in dasher-4.1.10/configure.in
+--- aaa/dasher-4.1.10/configure.in	2006-08-21 23:25:29.000000000 +0200
++++ dasher-4.1.10/configure.in	2006-08-26 15:57:54.032268144 +0200
+@@ -319,7 +319,7 @@
+ if [[ x"$WITHDARWIN" = xtrue ]]; then
+       GTK2BUILD_LIBS="$X_LIBS $GTK2_LIBS $SETTINGS_LIBS $gthread_LIBS $gnome_speech_LIBS $gnome_a11y_LIBS $glade_LIBS $gnome_LIBS $wnck_LIBS $hildon_LIBS"
+ else
+-      GTK2BUILD_LIBS="$X_LIBS $GTK2_LIBS $SETTINGS_LIBS $gthread_LIBS $gnome_speech_LIBS $gnome_a11y_LIBS $glade_LIBS $gnome_LIBS $wnck_LIBS $hildon_LIBS -Wl,--export-dynamic,"
++      GTK2BUILD_LIBS="$X_LIBS $GTK2_LIBS $SETTINGS_LIBS $gthread_LIBS $gnome_speech_LIBS $gnome_a11y_LIBS $glade_LIBS $gnome_LIBS $wnck_LIBS $hildon_LIBS -Wl,--export-dynamic"
+ fi
  AC_SUBST(GTK2BUILD_CFLAGS)
  AC_SUBST(GTK2BUILD_LIBS)
