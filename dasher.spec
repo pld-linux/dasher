@@ -14,7 +14,7 @@ BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	ORBit2-devel >= 2.14.2
 BuildRequires:	at-spi-devel >= 1.7.11
 BuildRequires:	autoconf >= 2.56
-BuildRequires:	automake >= 1.8
+BuildRequires:	automake >= 1:1.8
 BuildRequires:	expat-devel
 BuildRequires:	gnome-speech-devel >= 0.4.4
 BuildRequires:	gnome-vfs2-devel >= 2.15.92
