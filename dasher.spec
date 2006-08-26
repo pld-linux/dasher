@@ -1,32 +1,31 @@
 Summary:	Predictive text entry application
 Summary(pl):	Przewiduj±ca aplikacja do wprowadzania tekstu
 Name:		dasher
-Version:	4.0.2
+Version:	4.1.10
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/dasher/4.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	47cf27594abb51ea97f3a8fdb276736d
-Patch0:		%{name}-desktop.patch
-Patch1:		%{name}-ac.patch
+Source0:	http://ftp.gnome.org/pub/gnome/sources/dasher/4.1/%{name}-%{version}.tar.bz2
+# Source0-md5:	69971f8700c2499db63d1f124cbb8b3c
+Patch0:		%{name}-ac.patch
+Patch1:		%{name}-as-needed.patch
 URL:		http://www.inference.phy.cam.ac.uk/dasher/
-BuildRequires:	GConf2-devel
-BuildRequires:	ORBit2-devel
-BuildRequires:	at-spi-devel
-BuildRequires:	autoconf >= 2.50
-BuildRequires:	automake
-BuildRequires:	bonobo-devel
+BuildRequires:	GConf2-devel >= 2.14.0
+BuildRequires:	ORBit2-devel >= 2.14.2
+BuildRequires:	at-spi-devel >= 1.7.11
+BuildRequires:	autoconf >= 2.56
+BuildRequires:	automake >= 1.8
 BuildRequires:	expat-devel
-BuildRequires:	gail-devel
-BuildRequires:	gnome-speech-devel
-BuildRequires:	gnome-vfs2-devel
-BuildRequires:	intltool >= 0.33
-BuildRequires:	libbonobo-devel
-BuildRequires:	libglade2-devel
-BuildRequires:	libgnomeui-devel
+BuildRequires:	gnome-speech-devel >= 0.4.4
+BuildRequires:	gnome-vfs2-devel >= 2.15.92
+BuildRequires:	gtk+2-devel >= 2:2.10.2
+BuildRequires:	intltool >= 0.35
+BuildRequires:	libbonobo-devel >= 2.15.3
+BuildRequires:	libglade2-devel >= 2.6.0
+BuildRequires:	libgnomeui-devel >= 2.15.91
 BuildRequires:	libtool
-BuildRequires:	libwnck-devel
 BuildRequires:	rpmbuild(macros) >= 1.197
+BuildRequires:	xorg-lib-libXtst-devel
 Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -67,8 +66,10 @@ minutê.
 %{__automake}
 %configure \
 	--with-gnome \
-	--with-speech \
-	--with-a11y
+	--enable-speech \
+	--enable-a11y \
+	--disable-scrollkeeper \
+	--with-cairo
 %{__make}
 
 %install
@@ -77,7 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/{tk,ug}
 
 %find_lang %{name} --with-gnome --all-name
 
