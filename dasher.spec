@@ -1,28 +1,28 @@
 Summary:	Predictive text entry application
 Summary(pl):	Przewiduj±ca aplikacja do wprowadzania tekstu
 Name:		dasher
-Version:	4.1.10
+Version:	4.2.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/dasher/4.1/%{name}-%{version}.tar.bz2
-# Source0-md5:	69971f8700c2499db63d1f124cbb8b3c
+Source0:	http://ftp.gnome.org/pub/gnome/sources/dasher/4.2/%{name}-%{version}.tar.bz2
+# Source0-md5:	9db6f0ac46041300e7126a073a40530e
 Patch0:		%{name}-ac.patch
 Patch1:		%{name}-as-needed.patch
 URL:		http://www.inference.phy.cam.ac.uk/dasher/
 BuildRequires:	GConf2-devel >= 2.14.0
-BuildRequires:	ORBit2-devel >= 2.14.2
+BuildRequires:	ORBit2-devel >= 2.14.3
 BuildRequires:	at-spi-devel >= 1.7.11
 BuildRequires:	autoconf >= 2.56
 BuildRequires:	automake >= 1:1.8
 BuildRequires:	expat-devel
-BuildRequires:	gnome-speech-devel >= 0.4.4
-BuildRequires:	gnome-vfs2-devel >= 2.15.92
-BuildRequires:	gtk+2-devel >= 2:2.10.2
+BuildRequires:	gnome-speech-devel >= 0.4.5
+BuildRequires:	gnome-vfs2-devel >= 2.16.0
+BuildRequires:	gtk+2-devel >= 2:2.10.3
 BuildRequires:	intltool >= 0.35
-BuildRequires:	libbonobo-devel >= 2.15.3
+BuildRequires:	libbonobo-devel >= 2.16.0
 BuildRequires:	libglade2-devel >= 2.6.0
-BuildRequires:	libgnomeui-devel >= 2.15.91
+BuildRequires:	libgnomeui-devel >= 2.16.0
 BuildRequires:	libtool
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	xorg-lib-libXtst-devel
