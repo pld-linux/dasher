@@ -1,5 +1,5 @@
 Summary:	Predictive text entry application
-Summary(pl.UTF-8):   Przewidująca aplikacja do wprowadzania tekstu
+Summary(pl.UTF-8):	Przewidująca aplikacja do wprowadzania tekstu
 Name:		dasher
 Version:	4.2.1
 Release:	1
