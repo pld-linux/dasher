@@ -1,5 +1,5 @@
 Summary:	Predictive text entry application
-Summary(pl):	Przewiduj±ca aplikacja do wprowadzania tekstu
+Summary(pl.UTF-8):   PrzewidujÄ…ca aplikacja do wprowadzania tekstu
 Name:		dasher
 Version:	4.2.1
 Release:	1
@@ -41,18 +41,18 @@ user to write text as fast as normal handwriting - 25 words per
 minute; using a mouse, experienced users can write at 39 words per
 minute.
 
-%description -l pl
+%description -l pl.UTF-8
 Dasher to wydajny interfejs do wprowadzania tekstu sterowany przez
-naturalne ci±g³e gesty urz±dzenia wskazuj±cego. Dasher jest
-konkurencyjnym systemem wprowadzania tekstu wszêdzie tam, gdzie nie
-mo¿na u¿yæ pe³nowymiarowej klawiatury - na przyk³ad w palmtopach czy
-komputerach przeno¶nych, komputerach sterowanych przez jednorêkich,
-za pomoc± joysticka, ekranu dotykowego, trackballa lub myszy albo bez
-u¿ycia r±k (poprzez ¶ledzenie ruchów g³owy albo oczu). Wersja Dashera
-¶ledz±ca ruchy oczu pozwala do¶wiadczonemu u¿ytkownikowi pisaæ tekst
-z podobn± szybko¶ci± do normalnego pisma - 25 s³ów na minutê; przy
-u¿yciu myszy do¶wiadczeni u¿ytkownicy mog± pisaæ nawet 39 s³ów na
-minutê.
+naturalne ciÄ…gÅ‚e gesty urzÄ…dzenia wskazujÄ…cego. Dasher jest
+konkurencyjnym systemem wprowadzania tekstu wszÄ™dzie tam, gdzie nie
+moÅ¼na uÅ¼yÄ‡ peÅ‚nowymiarowej klawiatury - na przykÅ‚ad w palmtopach czy
+komputerach przenoÅ›nych, komputerach sterowanych przez jednorÄ™kich,
+za pomocÄ… joysticka, ekranu dotykowego, trackballa lub myszy albo bez
+uÅ¼ycia rÄ…k (poprzez Å›ledzenie ruchÃ³w gÅ‚owy albo oczu). Wersja Dashera
+Å›ledzÄ…ca ruchy oczu pozwala doÅ›wiadczonemu uÅ¼ytkownikowi pisaÄ‡ tekst
+z podobnÄ… szybkoÅ›ciÄ… do normalnego pisma - 25 sÅ‚Ã³w na minutÄ™; przy
+uÅ¼yciu myszy doÅ›wiadczeni uÅ¼ytkownicy mogÄ… pisaÄ‡ nawet 39 sÅ‚Ã³w na
+minutÄ™.
 
 %prep
 %setup -q
