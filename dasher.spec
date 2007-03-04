@@ -2,13 +2,14 @@ Summary:	Predictive text entry application
 Summary(pl.UTF-8):	Przewidująca aplikacja do wprowadzania tekstu
 Name:		dasher
 Version:	4.2.1
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/dasher/4.2/%{name}-%{version}.tar.bz2
 # Source0-md5:	bb231a7afb424ad97264da67e5d24620
 Patch0:		%{name}-ac.patch
 Patch1:		%{name}-as-needed.patch
+Patch2:		%{name}-iconv.patch
 URL:		http://www.inference.phy.cam.ac.uk/dasher/
 BuildRequires:	GConf2-devel >= 2.16.0
 BuildRequires:	ORBit2-devel >= 2.14.3
@@ -58,6 +59,7 @@ minutę.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__libtoolize}
