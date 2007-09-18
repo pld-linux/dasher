@@ -9,18 +9,19 @@ diff -urN dasher-4.4.0/Src/Makefile.am dasher-4.4.0.new/Src/Makefile.am
 -	-lexpat \
 -	$(POPT_LIBS) \
 -	$(GPELIB) \
- 	Common/libdashermisc.a \
- 	Gtk2/libdashergtk.a \
- 	Gtk2/libdashercontrol.a \
- 	DasherCore/libdashercore.a \
- 	DasherCore/LanguageModelling/libdasherlm.a \
- 	DasherCore/Alphabet/libdasheralphabet.a \
+	Common/libdashermisc.a \
+	Gtk2/libdashergtk.a \
+	Gtk2/libdashercontrol.a \
+	DasherCore/libdashercore.a \
+	DasherCore/libdasherprefs.a \
+	DasherCore/LanguageModelling/libdasherlm.a \
+	DasherCore/Alphabet/libdasheralphabet.a \
 -	Common/libdashermisc.a
 +	Common/libdashermisc.a \
 +	$(GTK2BUILD_LIBS) \
 +	-lexpat \
 +	$(POPT_LIBS) \
 +	$(GPELIB)
- endif
+ #endif
  
- if DOQTE
+ #if DOQTE
