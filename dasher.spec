@@ -9,6 +9,7 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/dasher/4.6/%{name}-%{version}.ta
 # Source0-md5:	ab9fce024bb2b1ea3cb479e82819d57d
 Patch0:		%{name}-ac.patch
 Patch1:		%{name}-as-needed.patch
+Patch2:		%{name}-action-speech.patch
 URL:		http://www.inference.phy.cam.ac.uk/dasher/
 BuildRequires:	GConf2-devel >= 2.18.0.1
 BuildRequires:	ORBit2-devel >= 1:2.14.7
@@ -63,6 +64,7 @@ minutę.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p0
 
 %build
 %{__glib_gettextize}
@@ -105,7 +107,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog MAINTAINERS README Doc/Colourschemes
+%doc AUTHORS ChangeLog MAINTAINERS README
 %attr(755,root,root) %{_bindir}/*
 %{_sysconfdir}/gconf/schemas/dasher.schemas
 %{_datadir}/%{name}
