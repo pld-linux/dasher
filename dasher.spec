@@ -1,17 +1,17 @@
 Summary:	Predictive text entry application
 Summary(pl.UTF-8):	Przewidująca aplikacja do wprowadzania tekstu
 Name:		dasher
-Version:	4.6.0
-Release:	2
+Version:	4.6.1
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/dasher/4.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	ab9fce024bb2b1ea3cb479e82819d57d
+# Source0-md5:	1457df5075477d757f7df5693947464d
 Patch0:		%{name}-ac.patch
 Patch1:		%{name}-as-needed.patch
 Patch2:		%{name}-action-speech.patch
 URL:		http://www.inference.phy.cam.ac.uk/dasher/
-BuildRequires:	GConf2-devel >= 2.18.0.1
+BuildRequires:	GConf2-devel >= 2.20.0
 BuildRequires:	ORBit2-devel >= 1:2.14.7
 BuildRequires:	at-spi-devel >= 1.20.0
 BuildRequires:	atk-devel >= 1.20.0
@@ -22,10 +22,10 @@ BuildRequires:	gnome-doc-utils
 BuildRequires:	gnome-speech-devel >= 0.4.10
 BuildRequires:	gnome-vfs2-devel >= 2.20.0
 BuildRequires:	gtk+2-devel >= 2:2.12.0
-BuildRequires:	intltool >= 0.35.5
+BuildRequires:	intltool >= 0.36.2
 BuildRequires:	libbonobo-devel >= 2.20.0
 BuildRequires:	libglade2-devel >= 2.6.0
-BuildRequires:	libgnomeui-devel >= 2.18.1
+BuildRequires:	libgnomeui-devel >= 2.20.0
 BuildRequires:	libtool
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	xorg-lib-libXtst-devel
