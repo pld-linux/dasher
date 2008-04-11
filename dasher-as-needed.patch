@@ -1,7 +1,7 @@
 diff -urN dasher-4.4.0/Src/Makefile.am dasher-4.4.0.new/Src/Makefile.am
 --- dasher-4.4.0/Src/Makefile.am	2007-03-12 15:13:14.000000000 +0100
 +++ dasher-4.4.0.new/Src/Makefile.am	2007-03-23 19:30:32.000000000 +0100
-@@ -24,17 +24,17 @@
+@@ -24,10 +24,6 @@
  	-DPACKAGE_LOCALE_DIR=\"$(datadir)/locale\"
  
  dasher_LDADD = \
@@ -12,10 +12,10 @@ diff -urN dasher-4.4.0/Src/Makefile.am dasher-4.4.0.new/Src/Makefile.am
 	Common/libdashermisc.a \
 	Gtk2/libdashergtk.a \
 	Gtk2/libdashercontrol.a \
-	DasherCore/libdashercore.a \
-	DasherCore/libdasherprefs.a \
-	DasherCore/LanguageModelling/libdasherlm.a \
-	DasherCore/Alphabet/libdasheralphabet.a \
+@@ -35,7 +35,11 @@
+ 	DasherCore/libdashercore.a \
+ 	DasherCore/libdasherprefs.a \
+ 	DasherCore/LanguageModelling/libdasherlm.a \
 -	Common/libdashermisc.a
 +	Common/libdashermisc.a \
 +	$(GTK2BUILD_LIBS) \
