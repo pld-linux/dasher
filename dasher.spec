@@ -4,7 +4,7 @@ Name:		dasher
 Version:	4.9.0
 Release:	1
 License:	GPL v2
-Group:		X11/Applications
+Group:		X11/Applications/Accessibility
 Source0:	http://ftp.gnome.org/pub/gnome/sources/dasher/4.9/%{name}-%{version}.tar.bz2
 # Source0-md5:	f6f024878f258a9506e62cf717446437
 Patch0:		%{name}-ac.patch
