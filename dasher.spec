@@ -14,7 +14,9 @@ BuildRequires:	at-spi-devel >= 1.20.0
 BuildRequires:	atk-devel >= 1.20.0
 BuildRequires:	autoconf >= 2.56
 BuildRequires:	automake >= 1:1.8
+BuildRequires:	docbook-dtd412-xml
 BuildRequires:	expat-devel
+BuildRequires:	gettext-devel
 BuildRequires:	gnome-doc-utils
 BuildRequires:	gnome-speech-devel >= 0.4.10
 BuildRequires:	gnome-vfs2-devel >= 2.20.0
@@ -24,6 +26,7 @@ BuildRequires:	libbonobo-devel >= 2.20.0
 BuildRequires:	libglade2-devel >= 2.6.0
 BuildRequires:	libgnomeui-devel >= 2.20.0
 BuildRequires:	libtool
+BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	xorg-lib-libXtst-devel
 Requires(post,postun):	gtk+2
@@ -63,6 +66,7 @@ minutę.
 %setup -q
 
 %build
+rm -r m4
 %{__glib_gettextize}
 %{__intltoolize}
 %{__libtoolize}
