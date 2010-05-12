@@ -1,33 +1,34 @@
 Summary:	Predictive text entry application
 Summary(pl.UTF-8):	Przewidująca aplikacja do wprowadzania tekstu
 Name:		dasher
-Version:	4.10.1
+Version:	4.11
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Accessibility
-Source0:	http://ftp.gnome.org/pub/gnome/sources/dasher/4.10/%{name}-%{version}.tar.bz2
-# Source0-md5:	83e556690ac54c4bb8c49c050510259e
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/dasher/4.11/%{name}-%{version}.tar.bz2
+# Source0-md5:	55695cacecb9fa9e3259e0f2ef82ae9e
 URL:		http://www.inference.phy.cam.ac.uk/dasher/
 BuildRequires:	GConf2-devel >= 2.20.0
 BuildRequires:	ORBit2-devel >= 1:2.14.7
 BuildRequires:	at-spi-devel >= 1.20.0
 BuildRequires:	atk-devel >= 1.20.0
-BuildRequires:	autoconf >= 2.56
+BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.8
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	expat-devel
 BuildRequires:	gettext-devel
+BuildRequires:	glib2-devel >= 1:2.16.1
 BuildRequires:	gnome-doc-utils
 BuildRequires:	gnome-speech-devel >= 0.4.10
-BuildRequires:	gnome-vfs2-devel >= 2.20.0
-BuildRequires:	gtk+2-devel >= 2:2.12.0
-BuildRequires:	intltool >= 0.36.2
+BuildRequires:	gtk+2-devel >= 2:2.18.0
+BuildRequires:	intltool >= 0.40.1
 BuildRequires:	libbonobo-devel >= 2.20.0
-BuildRequires:	libglade2-devel >= 2.6.0
 BuildRequires:	libgnomeui-devel >= 2.20.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
+BuildRequires:	sed >= 4.0
 BuildRequires:	xorg-lib-libXtst-devel
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
@@ -65,12 +66,14 @@ minutę.
 %prep
 %setup -q
 
+sed -i -e 's/en@shaw//' po/LINGUAS
+rm -f po/en@shaw.po
+
 %build
-rm -r m4
 %{__glib_gettextize}
 %{__intltoolize}
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
@@ -90,7 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 
 [ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
 	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
-%find_lang %{name} --with-gnome --all-name
+%find_lang %{name} --with-gnome --with-omf --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -117,4 +120,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/48x48/apps/%{name}.png
 %{_iconsdir}/hicolor/scalable/apps/%{name}.svg
 %{_mandir}/man1/%{name}*
-%{_omf_dest_dir}/%{name}
