@@ -2,7 +2,7 @@ Summary:	Predictive text entry application
 Summary(pl.UTF-8):	Przewidująca aplikacja do wprowadzania tekstu
 Name:		dasher
 Version:	4.11
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications/Accessibility
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/dasher/4.11/%{name}-%{version}.tar.bz2
@@ -30,7 +30,7 @@ BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	sed >= 4.0
 BuildRequires:	xorg-lib-libXtst-devel
-Requires(post,postun):	gtk+2
+Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
