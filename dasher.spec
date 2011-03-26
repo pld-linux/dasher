@@ -28,7 +28,6 @@ BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
-BuildRequires:	sed >= 4.0
 BuildRequires:	xorg-lib-libXtst-devel
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
@@ -66,9 +65,6 @@ minutę.
 %prep
 %setup -q
 
-sed -i -e 's/en@shaw//' po/LINGUAS
-rm -f po/en@shaw.po
-
 %build
 %{__glib_gettextize}
 %{__intltoolize}
@@ -91,8 +87,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
-	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 %find_lang %{name} --with-gnome --with-omf --all-name
 
 %clean
