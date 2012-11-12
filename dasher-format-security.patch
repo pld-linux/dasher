@@ -1,0 +1,11 @@
+--- dasher-4.11/Src/Gtk2/game_mode_helper.cpp~	2009-12-18 19:40:29.000000000 +0100
++++ dasher-4.11/Src/Gtk2/game_mode_helper.cpp	2012-11-12 22:40:43.545981765 +0100
+@@ -324,7 +324,7 @@
+ 				   GTK_DIALOG_MODAL,
+ 				   GTK_MESSAGE_INFO,
+ 				   GTK_BUTTONS_OK,
+-				   message);
++				   "%s", message);
+   gtk_dialog_run (GTK_DIALOG (pDialog));
+   gtk_widget_destroy (pDialog);
+ 
