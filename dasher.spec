@@ -17,7 +17,7 @@ BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.8
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	expat-devel
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.16.1
 BuildRequires:	gnome-doc-utils
 BuildRequires:	gnome-speech-devel >= 0.4.10
