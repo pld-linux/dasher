@@ -1,15 +1,23 @@
-%define	snap	g9a09c4e
+#
+# Conditional build:
+%bcond_with	canna		# Canna (Japanese Kanji) input (broken as of 5.0.0beta)
+
 Summary:	Predictive text entry application
 Summary(pl.UTF-8):	Przewidująca aplikacja do wprowadzania tekstu
 Name:		dasher
-Version:	4.11
-Release:	4.%{snap}.1
+Version:	5.0.0
+%define	subver	beta
+%define	rel	1
+%define	gittag	DASHER_%(echo %{version} | tr . _)_%{subver}
+Release:	0.%{subver}.%{rel}
 License:	GPL v2
 Group:		X11/Applications/Accessibility
-#Source0:	http://ftp.gnome.org/pub/GNOME/sources/dasher/4.11/%{name}-%{version}.tar.bz2
-Source0:	%{name}-%{version}-%{snap}.tar.bz2
-# Source0-md5:	5012a6761eebcc4d4ca62886ffa6c9ec
+#Source0:	https://download.gnome.org/sources/dasher/4.11/%{name}-%{version}.tar.bz2
+Source0:	https://github.com/dasher-project/dasher/archive/%{gittag}.tar.gz
+# Source0-md5:	02187ade611218f15aa2613a648161c2
+Patch0:		%{name}-include.patch
 URL:		http://www.inference.phy.cam.ac.uk/dasher/
+%{?with_canna:BuildRequires:	Canna-devel}
 BuildRequires:	atk-devel >= 2.16.0
 BuildRequires:	at-spi2-core-devel
 BuildRequires:	autoconf >= 2.59
@@ -19,10 +27,11 @@ BuildRequires:	docbook-dtd412-xml
 BuildRequires:	expat-devel
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.16.1
-BuildRequires:	gnome-doc-utils
-BuildRequires:	gtk+3-devel
+BuildRequires:	gnome-doc-utils >= 0.9.0
+BuildRequires:	gtk+3-devel >= 3.0
 BuildRequires:	intltool >= 0.40.1
-BuildRequires:	libtool
+BuildRequires:	libstdc++-devel >= 6:4.3
+BuildRequires:	libtool >= 2:2
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
@@ -33,8 +42,6 @@ Requires(post,preun):	glib2 >= 1:2.28.0
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
-# sr@Latn vs. sr@latin
-Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -63,7 +70,12 @@ użyciu myszy doświadczeni użytkownicy mogą pisać nawet 39 słów na
 minutę.
 
 %prep
-%setup -q -n %{name}-%{version}-%{snap}
+%setup -q -n %{name}-%{gittag}
+%patch0 -p1
+
+%{__rm} m4/glib-gettext.m4
+
+echo '%{version}.%{subver}' > .tarball-version
 
 %build
 %{__glib_gettextize}
@@ -75,13 +87,17 @@ minutę.
 %{__automake}
 %configure \
 	GLIB_COMPILE_SCHEMAS=/bin/true \
-	--disable-schemas-install \
-	--with-gnome \
-	--enable-speech=speechdispatcher \
 	--enable-atspi \
+	--disable-schemas-install \
 	--disable-scrollkeeper \
+	%{?with_canna:--enable-japanese} \
+	%{?with_joystick:--enable-joystick} \
+	--enable-speech=speechdispatcher \
 	--with-cairo \
+	--with-gnome \
 	--with-gsettings
+# --enable-joystick, --enable-tilt are broken (as of 5.0.0beta)
+
 %{__make}
 
 %install
@@ -96,27 +112,21 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %post
-{
-umask 022
-/usr/bin/glib-compile-schemas --allow-any-name %{_datadir}/glib-2.0/schemas
-}
 %scrollkeeper_update_post
 %update_desktop_database_post
 %update_icon_cache hicolor
 
 %postun
-%glib_compile_schemas
 %scrollkeeper_update_postun
 %update_desktop_database_postun
 %update_icon_cache hicolor
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog MAINTAINERS README
-%attr(755,root,root) %{_bindir}/*
-%{_datadir}/glib-2.0/schemas/dasher.gschema.xml
+%doc AUTHORS ChangeLog MAINTAINERS NEWS README
+%attr(755,root,root) %{_bindir}/dasher
 %{_datadir}/%{name}
-%{_desktopdir}/%{name}.desktop
-%{_iconsdir}/hicolor/48x48/apps/%{name}.png
-%{_iconsdir}/hicolor/scalable/apps/%{name}.svg
-%{_mandir}/man1/%{name}*
+%{_desktopdir}/dasher.desktop
+%{_iconsdir}/hicolor/48x48/apps/dasher.png
+%{_iconsdir}/hicolor/scalable/apps/dasher.svg
+%{_mandir}/man1/dasher.1*

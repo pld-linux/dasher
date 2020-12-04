@@ -1,0 +1,9 @@
+--- dasher-DASHER_5_0_0_beta/Src/Gtk2/FileUtils.cpp.orig	2016-04-08 00:17:00.000000000 +0200
++++ dasher-DASHER_5_0_0_beta/Src/Gtk2/FileUtils.cpp	2020-11-21 09:54:10.136109070 +0100
+@@ -1,5 +1,6 @@
+ #include <string>
+ #include <stdio.h>
++#include <sys/stat.h>
+ 
+ #include "../Common/Globber.h"
+ #include "../DasherCore/AbstractXMLParser.h"
