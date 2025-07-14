@@ -71,7 +71,7 @@ minutę.
 
 %prep
 %setup -q -n %{name}-%{gittag}
-%patch0 -p1
+%patch -P0 -p1
 
 %{__rm} m4/glib-gettext.m4
 
